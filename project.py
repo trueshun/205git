@@ -8,7 +8,7 @@ def intro():
     	yourself your forgot to eat, hell, you even forgot to pee. It’s been an 
     	incredibly lazy winter break at your grandpa’s winter house, and this is
     	usually how you end your nights. Cooped up inside, playing games and enjoying 
-    	the solitude. On the table is a letter from your grandpa, it says to type 'read me'.
+    	the solitude. On the table is a letter from your grandpa, it says to type read me.
     """)
     	#you decide to eat something in the kitchen. """)
 
@@ -40,6 +40,10 @@ that a murderer over there?! N-no… it’s just the garden’s scarecrow. """)
 
 inventory = Bag()
 
+#Room atrributes for actions
+Room.can_brush= False
+bathroom.can_brush = True
+
 #function for moving
 # @when('n', direction='north')
 # @when('s', direction='south')
@@ -60,7 +64,7 @@ def go(direction):
             set_context('pee')
         else:
             set_context('default')
-        #look()
+        look()
 
 #explain how to play game.        
 @when("read")
@@ -74,21 +78,41 @@ def explain():
 	print("--------------------------------------------------------------------")
 
 #going to the bathroom
-first = True
+youPeed = "no"
 @when("pee", context="pee")
 @when("use the toilet", context="pee")
 def useBathroom():
-	global first
-	if first == True:
+	global youPeed
+	if youPeed == "no":
 		print("You use the toilet. Boy, is that a relief!")
-		first = False
+		youPeed = "yes"
 	else:
 		print("You already used the bathroom.")
+
+#brushing teeth
+@when("brush teeth")
+@when("brush")
+def brushTeeth():
+	if current_room.can_brush:
+		print("Minty fresh. Should you floss? Nah, who has time for that.")
+	else:
+		print("Ypu can't do that here.")
 
 #function for looking around room
 @when('look')
 def look():
     say(current_room)
 
-intro()
-start()
+
+#Put all game functions here
+def play():
+	intro()
+
+
+	#start always goes last
+	start()
+
+#play function. Will keep going until statement proves false
+playAgain = "yes"
+while playAgain == "yes" or playAgain == "y":
+	play()
