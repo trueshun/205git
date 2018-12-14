@@ -1,6 +1,5 @@
-from adventurelib import *
 
-import textwrap
+from adventurelib import *
 
 # def intro():
 #     say(""" Your stomach grumbles as you turn your ps4 off. In the midst of enjoying 
@@ -70,10 +69,10 @@ def first_choice():
 		say(""" You look at the cabnit 
 			""")
 
-game = True
+playAgain
 def start_game():
 	intro()
 
-while game == True:
-	start_game()	
-playAgain()
+while playAgain == "yes" or playAgain == "y":
+	start_game()
+

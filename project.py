@@ -1,7 +1,6 @@
 from adventurelib import *
 
 
-
 def intro():
     say(""" 
     	Your stomach grumbles as you turn your ps4 off. In the midst of enjoying 
@@ -10,7 +9,6 @@ def intro():
     	usually how you end your nights. Cooped up inside, playing games and enjoying 
     	the solitude. On the table is a letter from your grandpa, it says to type read me.
     """)
-    	#you decide to eat something in the kitchen. """)
 
 #room descriptions for look(). Lets the user look around the room they are currently
 #in, as well as letting the user know which direction will lead them to what area.
@@ -41,8 +39,11 @@ that a murderer over there?! N-no… it’s just the garden’s scarecrow. """)
 inventory = Bag()
 
 #Room atrributes for actions
+#brushing only done in bathroom
 Room.can_brush= False
 bathroom.can_brush = True
+
+
 
 #function for moving
 # @when('n', direction='north')
@@ -64,6 +65,11 @@ def go(direction):
             set_context('pee')
         else:
             set_context('default')
+        if room == kitchen:
+        	set_context('examine')
+        else:
+        	set_context('default')
+
         look()
 
 #explain how to play game.        
@@ -96,18 +102,28 @@ def brushTeeth():
 	if current_room.can_brush:
 		print("Minty fresh. Should you floss? Nah, who has time for that.")
 	else:
-		print("Ypu can't do that here.")
+		print("You can't do that here.")
 
 #function for looking around room
 @when('look')
 def look():
     say(current_room)
 
+#examining cabnit or fridge
+
+@when("examine TARGET")
+def examine(target):
+	if target == "fridge":
+		print(f"You examined the old {target}. You're amazed at its good condition.")
+		print("There's nothing inside, but a ketchup bottle and some pickles.")
+		print("You decide to check the cabnit.")
+	else:
+		print("There's nothing good on the bottom of the cabnit, you stand on your toes ")
+		print("and ")
 
 #Put all game functions here
 def play():
 	intro()
-
 
 	#start always goes last
 	start()
