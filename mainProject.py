@@ -18,7 +18,10 @@ no= ["no", "n", "No,", "N"]
 
 
 def title():
-	print("                        SANDWHICH QUEST                ") 
+	print("\n\n\n\n")
+	print("----------------------------------------------------------")
+	print("                        SANDWHICH QUEST                   ")
+	print("----------------------------------------------------------")
 
 #display intro to the game
 def displayIntro():
@@ -115,22 +118,68 @@ def checkCabinet():
 	while choice3 not in answer_a and choice3 not in answer_b and choice3 not in answer_c:
 		choice3= input(">>>")
 	if choice3 in answer_a:
-		destinationOne()
+		getItem()
 	elif choice3 in answer_b:
-		say("""You place the diary into the fridge as you grab all the takeout menus' on the door. 
+		say("""You place the diary into the fridge, nearly forgotten, as you grab all the takeout menus' on the fridge door.\n
 			Hopefully one of these places is still open.""")
 		replay()
 	elif choice3 in answer_c:
 		print("You consider if it could be a joke, and while your grandpa loves jokes, you're not sure if this is one...")
 		time.sleep(2)
 		print("You decide to see if it's true.")
-		destinationOne()
+		getItem()
+
 #func if player choses to see if diary is real.
-def destinationOne():
+def getItem():
 	say("""
 		You grab your coat after dashing to the bathroom.\n
-
+		Is there anything else you need?\n
+		You currently have the diary in your leather messenger bag, and are currently wearing a greay hoodie with a black puffy vest.\n 
+		It's dark out, should you look for a flashlight?\n
 		""")
+
+	time.sleep(1)
+	say("""
+		A. Dear god, you need a flashlight. Look for it now!\n
+		B. Nah, you got cat-like reflexes and cat-like eyesight. You're gucci.\n
+		""")
+	global flashlight
+	choice4 = ""
+	while choice4 not in answer_a and choice4 not in answer_b:
+		choice4 = input(">>>")
+	if choice4 in answer_a:
+		flashlight = True
+		say("""
+			You look all over the cabin, nearly giving up when you find the flashlight in the kitchen drawer full of random stuff.\
+			Thank God, because you don't have any cat-like skills.
+			""")
+
+		print("Hey, there's a slim jim in here! Should you take it?\n")
+		time.sleep(1)
+		say("""
+		 	A. Fuck yeah, snap into a slim jim!\n
+		 	B. Ew, gross. If I'm eating that I might as well eat those navy beans.\n
+			""")
+		
+		choice5= ""
+		while choice5 not in answer_a and choice5 not in answer_b:
+		 	choice5 = input(">>>")
+		if choice5 in answer_a:# this option will GIVE flashlight and GIVE jerky - AA
+		 	print("You greedily shove the slim jim in your messenger bag.\n")
+		 	jerky = True
+		 	lettuce()
+		else:#this option will GIVE flashlight and NO jerky - AB
+		 	print("You shove it deeper in the drawer, disgust on your face.\n") 
+		 	jerky = False
+		 	lettuce()
+	elif choice4 in answer_b:# NO flashlight and NO jerky - B
+		print("Yeah, not bothering looking for that.\n")
+		flashlight = False
+		lettuce()
+
+#first item on quest lettuce
+def lettuce():
+	print("this si lettuce")
 
 #give option to replay game
 def replay():
@@ -138,6 +187,10 @@ def replay():
 	print("\nGAME OVER")
 	print("\nWould you like to play again?")
 	playAgain = input(">>>")
+
+#global variables
+flashlight = False
+jerky = False
 
 #setting up global variable for main game while loop
 #when this changes from 'yes' || 'y' to something else, game ends.
