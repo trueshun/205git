@@ -55,6 +55,7 @@ def displayIntro():
 
 #choice if fridge is chosen
 def checkFridge():
+	print("----------------------------------------------------")
 	say("""
 		You open the retro white fridge, and find the same bottle of 
 		ketchup you drank last night, and a jar of pickles... man, disappointing.
@@ -79,6 +80,7 @@ def checkFridge():
 		replay()
 #choice if cabinet is chosen.
 def checkCabinet():
+	print("----------------------------------------------------")
 	say("""
 		You check the bottom shelf of the cabinet, but don't see anything but a packet of wheat spaghetti noodles.
 		Maybe the upper middle shelf has some food? You stand on your toes for more leverage, avoiding a can of
@@ -95,9 +97,13 @@ def checkCabinet():
 		As you open the diary, your eyes glaze over the words, excitement fading. \n
 
 		The diary details the information on a 'Legendary' sandwhich, with a hand-drawn map on the front page of the diary. You notice that
-		the map looks like the aread surrounding the cabin.\n The author - your grandpa? - mentions how excuisite the sandwhich is, 
+		the map looks like the aread surrounding the cabin.\n 
+		
+		The author - your grandpa? - mentions how excuisite the sandwhich is, 
 		the taste unparallel to all sandwhich's he has eaten. He spends a page talking about how he can die now that he's eaten this 
-		'legendary' sandwhich.\n There's somthing about a warning on the last few pages, but what looks like mustard stains the pages.
+		'legendary' sandwhich.\n 
+		
+		There's somthing about a warning on the last few pages, but what looks like mustard stains the pages.
 		You can only make out the words: "shine bright".\n
 
 		This has got to be a joke, right?\n
@@ -134,6 +140,7 @@ def getItem():
 	#global items 
 	global flashlight
 	global jerky
+	print("----------------------------------------------------")
 
 	say("""
 		You grab your coat after dashing to the bathroom.\n
@@ -156,7 +163,7 @@ def getItem():
 			You look all over the cabin, nearly giving up when you find the flashlight in the kitchen drawer full of random stuff.\
 			Thank God, because you don't have any cat-like skills.
 			""")
-
+		print("----------------------------------------------------")
 		print("Hey, there's a slim jim in here! Should you take it?\n")
 		time.sleep(1)
 		say("""
@@ -184,6 +191,7 @@ def getItem():
 #first item on quest - lettuce!
 def lettuce():
 	global flashlight
+	print("----------------------------------------------------")
 	say("""
 		It takes about 20 minutes, but you come to the field detailed in the diary.\n
 		... At least you think you're in the right spot.\n
@@ -209,7 +217,7 @@ def lettuce():
 
 			You place the head of lettuce into your bag, the validity of the diary no longer doubted as you head to the next destination.
 			""")
-		meat()
+		locationBreak()
 	else:
 		say("""
 			You keep falling on the moist field, your shoes coated heavily in mud. You're not sure if this is the right place,
@@ -222,21 +230,137 @@ def lettuce():
 			""")
 		replay()
 
+#split in choices, user can pick to look for meat or cheese next
+def locationBreak():
+	print("----------------------------------------------------")
+	say("""
+		You look at the map in the diary once again. There are two locations near the lettuce field, what look to be the same distance apart.
+		Which should you go to first?
+		""")
+	time.sleep(2)
+	say("""
+		A. Where's the beef.\n
+		B. Gotta get that cheese.\n
+		""")
+	print("----------------------------------------------------")
+	choice6 = ""
+	while choice6 not in answer_a and choice6 not in answer_b:
+		choice6 = input(">>>")
+	if choice6 in answer_a:
+		print("You go look for the meat in the sandwhich.\n")
+		meat()
+	elif choice6 in answer_b:
+		print("You go look for the cheese because that's your life now.")
+		cheese()
 #second ingrediant in quest - meat
 def meat():
-	print("meat")
-	replay()
-	
+	say("""
+		As you walk towards the destination for the meat of the sandwhich, you barely catch the * symbol below the word 'meat'.
+		You stop, shining the light onto the diary in the hopes of being able to make out the scrawled words.\n
+		
+		'Find Romano in Siren'\n
+		
+		God, of course you would start this quest at the wrong time. Still, you've come this far, you might as well go all the way.
+		They have to have some kind of motel, even the smallest town does.\n
+
+		You walk towards the town, diary in one hand and flashlight in the other. You don't remember a town being so close to home, your
+		grandpa's cabin is out in the boonies, and you usually have to drive an hour to get to the nearest town.\n
+
+		Maybe it's a magical town, or some shit, right? Maybe you need the lettuce or the diary to make it appear.\n
+
+		Sure enough, after a somewhat tiring walk, a small town comes into view. You can't see anyone yet, but you can hear the bustling
+		chatter of people.\n
+		
+		Unfucking believable, there really is a town here. Thank god, you may find Romano awake at this hour.\n
+
+		Lowkey you wonder if you can order takeout from here. After all, it's a lot closer than the takeout near home.\n
+
+		As you enter the town you overcome with a sever feeling of unease. The architecture looks like a mishmash of different eras,
+		some buildings looking ancient, while others don't come close to anything you've seen in the present.\n
+		It's hard to tear your gazeaway from the buildings, so you keep your gaze on the ground.\n
+
+		You don't like this feeling.\n 
+
+		What should you do?\n
+		""")
+	print("----------------------------------------------------")
+	time.sleep(4)
+	say("""
+		A. Go home.\n
+		B. Ask people if they know Romano\n
+		C. Look around the buildings\n 
+		""")
+	print("----------------------------------------------------")
+	choice7 =""
+	while choice7 not in answer_a and choice7 not in answer_b and choice7 not in answer_c:
+		choice7 = input(">>>")
+	if choice7 in answer_a:
+		say("""
+			You don't like this feeling. It's not like finding the lettuce. This place makes you feel anxious and scared. If
+			you wanted to feel like that you would have stayed at home, and thought about your future.\n
+
+			With your eyes on the floor, you turn around and walk back home.\n
+
+			The anxious feeling follows you for life.\n
+			""")
+		replay()
+	elif choice7 in answer_b:
+		say("""
+			You walk through the town, your gaze on the ground. You don't see anyone despite hearing voices around you. Somehow you
+			avoid looking up at the disembodied voices. You shout for Romano because at this point you just want to leave the town.\n
+			
+			Why would you care if a bunch of ghost think you're crazy? They're dead.\n
+
+			On your last shout you hear a shout of acknowledgment. You turn towards the shout, gaze locked on the ground.\n
+
+			'You can look up,' comes the voice.\n
+
+			Hesitantly you look up, and are greeted by a young man standing behind a meat stand.
+
+			'Here about the sandwhich?' he asks, voice smooth and numbing, as he hands you a wrapped packet. You attempt to respond, but
+
+			can't focus enough to do so.\n
+
+			'Just look down, and turn around. If you ever need meat again, come with a list.'\n
+
+			You do as he says, and soon enough you're at the gates of the town, your thoughts once again your own. What the hell was that about?\n
+
+			Was he some ghost, just forever selling meat? God, that must suck for an afterlife.\n
+
+			You're never coming here again.\n
+			""")
+		cheese()
+	elif choice7 in answer_c:
+		say("""
+			You walk through the town, your gaze on the buildings as you try to look for a sign that mentions a butcher, or has the
+			name Romano on it.\n
+
+			As you gaze at the buildings the overwhelming unease builds to the point that you want to run from the town, but you push on,
+			eyes scanning the buildings.\n 
+
+			By the time you make it to the center of the town your focus is gone, and you can't remember what you were doing, or how
+			you made it to this town.\n
+
+			You never make it back to the cabin or your old life, but the new life you create in the town fulfills you in a way the old you
+			would never know.\n  
+			""")
+		replay()
+
+def cheese():
+	print("cheese")
 #give option to replay game
 def replay():
+	print("----------------------------------------------------")
 	global playAgain
 	print("\nGAME OVER")
 	print("\nWould you like to play again?")
 	playAgain = input(">>>")
+	print("----------------------------------------------------")
 
 #global variables
 flashlight = False
 jerky = False
+
 
 #setting up global variable for main game while loop
 #when this changes from 'yes' || 'y' to something else, game ends.
