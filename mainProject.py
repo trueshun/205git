@@ -267,6 +267,8 @@ def locationBreak():
 		cheese()
 #second ingrediant in quest - meat
 def meat():
+	global patty
+	global cheeseLoaf
 	say("""
 		As you walk towards the destination for the meat of the sandwhich, you barely catch the * symbol below the word 'meat'.
 		You stop, shining the light onto the diary in the hopes of being able to make out the scrawled words.\n
@@ -343,7 +345,13 @@ def meat():
 
 			You're never coming here again.\n
 			""")
-		cheese()
+		patty = True
+		#make boolean to see if they have gotten cheese already if so go to bread().
+		if cheeseLoaf == False:
+			print("----------------------------------------------------")
+			cheese()
+		elif cheeseLoaf ==  True and patty == True: 
+			bread()
 	elif choice7 in answer_c:
 		say("""
 			You walk through the town, your gaze on the buildings as you try to look for a sign that mentions a butcher, or has the
@@ -353,16 +361,136 @@ def meat():
 			eyes scanning the buildings.\n 
 
 			By the time you make it to the center of the town your focus is gone, and you can't remember what you were doing, or how
-			you made it to this town.\n
+			you made it here.\n
 
 			You never make it back to the cabin or your old life, but the new life you create in the town fulfills you in a way the old you
-			would never know.\n  
+			would never understand.\n  
 			""")
 		time.sleep(5)
 		replay()
 
 def cheese():
-	print("cheese")
+	global patty
+	global cheeseLoaf
+	global jerky
+
+	say("""
+		You've gotten real good at reading the little map in the diary. You eventually find yourself
+		at a small farm, a faded red old-school barn lays to the west of you, the doors wide open.\n
+
+		Sheep, goats, and cows linger outside the barn, and some loiter in between the doors. Despite the animals,
+		there is no smell of manure in the air. In fact, it smells like nothing at all.\n
+
+		Cautiously you walk towards the animals. Maybe if you acknowledge them, they'll let you through.\n
+
+		'Baa,' you say to the sheep in what you hope is how you say 'hi, just passing through'. You do the same to the
+		cows, but throw in a head nod, too.\n
+
+		At the goat you stop and stare\n
+		""")
+	print("----------------------------------------------------")
+	time.sleep(3)
+	say("""
+		A. Crave the mineral.\n
+		B. Uh... goat noise?\n
+		C. 'Bleat?'\n
+		""")
+	print("----------------------------------------------------")
+	choice8 =""
+	while choice8 not in answer_a and choice8 not in answer_b and choice8 not in answer_c:
+		choice8 = input(">>>")
+	if choice8 in answer_a:
+		say("""
+			Incensed at your remark, the goat charges you. The other animals follow suit.\n
+
+			They don't stop chasing you until you run into the lettuce fields.\n
+
+			That's the last time you talk to a fucking goat.\n
+
+			What an asshole.\n
+		""")
+		time.sleep(4)
+		replay()
+	elif choice8 in answer_b or choice8 in answer_c:
+		say("""
+			You swear the goats roll their eyes at you, yet they let you through.\n
+
+			The inside of the barn is full of hay, and their is a warmth in the air that calms you
+			like no other anxiety pill ever has.\n
+
+			Sitting at a wooden picnic table is a woman. She nods at you as you enter, before returning her attention to
+			the cheese and cracker platter before her.\n
+
+			You awkwardly stand there.\n
+
+			'Uh, I'm here about the cheese,' you say as you gesture towrds the diary in your hand.\n
+
+			She nods and extends her hand out towards you.\n
+			""")
+		time.sleep(2)
+		print("----------------------------------------------------")
+		say("""
+			A. Check your bag.\n
+			B. Give her a high-five.\n
+			""")
+		print("----------------------------------------------------")
+		choice9=""
+		while choice9 not in answer_a and choice9 not in answer_b:
+			choice9 = input(">>>")
+		if choice9 in answer_a:
+			if jerky == True:
+				say("""
+					The only thing in your bag is the slim jim you grabbed before you left, so
+					you give her that.\n
+
+					Who doesn't like a slim jim?\n
+
+					From the way her brow furrows, you're guessing she doesn't like it.\n
+
+					She throws the slim jim back at you, and points towards the doors.\n
+
+					You leave dejected.\n
+
+					How could anyone hate slim jims?\n
+					""")
+				time.sleep(3)
+				replay()
+			else:
+				say("""
+					You check your bag for something to give her, but can't find anything but a mint.
+					Does she want the mint?\n
+
+					You place the mint in her outstretched hand.\n
+
+					At her quizical face, you just turn and leave.\n
+
+					Why would you give her a mint, god. You can never show your face here again.\n
+					""")
+				time.sleep(3)
+				replay()
+		elif choice9 in answer_b:
+			cheeseLoaf = True
+			say("""
+				You can't fight it, you see a hand and you have to high-five it. It's a compulsion.\n
+
+				With the might of Zeus, you high-five her outstretched hand.\n
+
+				At first she is bewildered, and then breaks into a chorus of genuine laughter. She grabs a loaf of cheese, and 
+				wraps it in cloth, before handing it to you.\n
+
+				You thank her, amazed that worked, wave goodbye as you leave.\n
+				""")
+			if patty == False:
+				print("----------------------------------------------------")
+				meat()
+			elif patty == True and cheeseLoaf == True:
+				bread()
+
+def bread():
+	print("This is bread.")
+	replay()
+
+
 #give option to replay game
 def replay():
 	print("----------------------------------------------------")
@@ -375,7 +503,8 @@ def replay():
 #global variables
 flashlight = False
 jerky = False
-
+patty = False
+cheeseLoaf = False
 
 #setting up global variable for main game while loop
 #when this changes from 'yes' || 'y' to something else, game ends.
