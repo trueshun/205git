@@ -120,32 +120,6 @@ def examine(target):
 		print("There's nothing good on the bottom of the cabnit, you stand on your toes ")
 		print("and ")
 
-def playGame():
-	global current_room
-	room = current_room
-
-	if(room == kitchen):
-		print("You walk towards closer to the fridge and cabnit.")
-		print("Where should you look first?")
-		choice1=""
-		while choice1 != "1" and choice1 != "2":
-			choice1 = input("Where should you look? (1 or 2")
-		if(choice1 == "1"):
-			fridge()
-		else:
-			cabnit()
-def fridge():
-	print("You open the retro white fridge, and find the same bootle of ")
-	print("ketchup you drank last night, and a jar of pickles... man.")
-	#print("Should you check the cabnit or call it a night?")
-	choice2 = ""
-	while choice2 != "1" and choice2 != "2":
-		choice2 = input("Should you check the cabnit or call it a night? (1 or 2)")
-	if choice2 == "1":
-		cabnit()
-	else:
-		print("you go back to sleep.")
-		print("play gain?")
 #Put all game functions here
 def play():
 	intro()
