@@ -131,6 +131,10 @@ def checkCabinet():
 
 #func if player choses to see if diary is real.
 def getItem():
+	#global items 
+	global flashlight
+	global jerky
+
 	say("""
 		You grab your coat after dashing to the bathroom.\n
 		Is there anything else you need?\n
@@ -143,7 +147,6 @@ def getItem():
 		A. Dear god, you need a flashlight. Look for it now!\n
 		B. Nah, you got cat-like reflexes and cat-like eyesight. You're gucci.\n
 		""")
-	global flashlight
 	choice4 = ""
 	while choice4 not in answer_a and choice4 not in answer_b:
 		choice4 = input(">>>")
@@ -175,6 +178,7 @@ def getItem():
 	elif choice4 in answer_b:# NO flashlight and NO jerky - B
 		print("Yeah, not bothering looking for that.\n")
 		flashlight = False
+		jerky
 		lettuce()
 
 #first item on quest lettuce
