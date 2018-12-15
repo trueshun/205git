@@ -29,9 +29,10 @@ bathroom = bedroom.north = Room(""" The bathroom is clean, the smell of pine waf
 	scrubbing. The bedroom is to the south. """)
 
 kitchen = starting_room.west = Room(""" The kitchen table is a mess, takeout containers
- and pizza boxes cover the surface. The stove is relatively clean, as you don’t cook.
-  There is a cabinet above the counter top, and an old-school white fridge lays against
-  the wall. To the east is the living room. """)
+	and pizza boxes cover the surface. The stove is relatively clean, as you don’t cook.
+	There is a cabinet above the counter top, and an old-school white fridge lays against
+	the wall. To the east is the living room. """)
+
 
 outside = starting_room.south = Room(""" It’s freezing and dark. Why did you decide to go out? Oh, god is
 that a murderer over there?! N-no… it’s just the garden’s scarecrow. """)
@@ -42,8 +43,6 @@ inventory = Bag()
 #brushing only done in bathroom
 Room.can_brush= False
 bathroom.can_brush = True
-
-
 
 #function for moving
 # @when('n', direction='north')
@@ -117,14 +116,40 @@ def examine(target):
 		print(f"You examined the old {target}. You're amazed at its good condition.")
 		print("There's nothing inside, but a ketchup bottle and some pickles.")
 		print("You decide to check the cabnit.")
-	else:
+	if target == "cabnit":
 		print("There's nothing good on the bottom of the cabnit, you stand on your toes ")
 		print("and ")
 
+def playGame():
+	global current_room
+	room = current_room
+
+	if(room == kitchen):
+		print("You walk towards closer to the fridge and cabnit.")
+		print("Where should you look first?")
+		choice1=""
+		while choice1 != "1" and choice1 != "2":
+			choice1 = input("Where should you look? (1 or 2")
+		if(choice1 == "1"):
+			fridge()
+		else:
+			cabnit()
+def fridge():
+	print("You open the retro white fridge, and find the same bootle of ")
+	print("ketchup you drank last night, and a jar of pickles... man.")
+	#print("Should you check the cabnit or call it a night?")
+	choice2 = ""
+	while choice2 != "1" and choice2 != "2":
+		choice2 = input("Should you check the cabnit or call it a night? (1 or 2)")
+	if choice2 == "1":
+		cabnit()
+	else:
+		print("you go back to sleep.")
+		print("play gain?")
 #Put all game functions here
 def play():
 	intro()
-
+	playGame()
 	#start always goes last
 	start()
 
