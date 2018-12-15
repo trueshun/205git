@@ -20,8 +20,9 @@ no= ["no", "n", "No,", "N"]
 def title():
 	print("\n\n\n\n")
 	print("----------------------------------------------------------")
-	print("                        SANDWHICH QUEST                   ")
+	print("                        SANDWICH QUEST                    ")
 	print("----------------------------------------------------------")
+	print("\n\n\n\n")
 
 #display intro to the game
 def displayIntro():
@@ -35,13 +36,15 @@ def displayIntro():
 	and pizza boxes cover the surface. The stove is relatively clean, as you don’t cook.
 	There is a cabinet above the counter top, and an old-school white fridge lays against
 	the wall. """)
+	print("----------------------------------------------------")
 	time.sleep(2)
 	say("""
 	Where should you check first?\n
 	A. The fridge.\n
 	B. The cabinet.\n
-	C. Too much effort, going back to bed.
+	C. Too much effort, going back to bed.\n
 	""")
+	print("----------------------------------------------------")
 	choice1 =""
 	while choice1 not in answer_a and choice1 not in answer_b and choice1 not in answer_c:
 		choice1 = input(">>>")
@@ -51,6 +54,7 @@ def displayIntro():
 		checkCabinet()
 	elif choice1 in answer_c: #will lead to end
 		print("You go back to bed, dejected by life. Each pang of hunger pains reminding you of all your failures in life.")
+		time.sleep(3)
 		replay()
 
 #choice if fridge is chosen
@@ -60,12 +64,14 @@ def checkFridge():
 		You open the retro white fridge, and find the same bottle of 
 		ketchup you drank last night, and a jar of pickles... man, disappointing.
 		""")
-	time.sleep(2)
+	time.sleep(3)
+	print("----------------------------------------------------")
 	say("""
 		Keep looking for something to eat?\n
 		A. All that's left is the cabinet.\n
-		B. Guess I'll drink some ketchup and head to bed.
+		B. Guess I'll drink some ketchup and head to bed.\n
 		""")
+	print("----------------------------------------------------")
 	choice2 = ""
 	#making sure that user input is correct
 	while choice2 not in answer_a and choice2 not in answer_b:
@@ -77,6 +83,7 @@ def checkFridge():
 			bottle and chugging a mix of semi-sweet/tart tomato puree.\n
 			God, is this your lowest moment yet?
 			""")
+		time.sleep(3)
 		replay()
 #choice if cabinet is chosen.
 def checkCabinet():
@@ -115,11 +122,13 @@ def checkCabinet():
 		Why else would your Grandpa have hidden the diary? Your stomach grumbles as you try to make sense of this.
 		""") 
 	time.sleep(2)
+	print("----------------------------------------------------")
 	say("""
 		A. Fuck it, check it out.\n
 		B. Screw that.\n
 		C. Think about it for a bit.\n
 		""")
+	print("----------------------------------------------------")
 	choice3 =""
 	while choice3 not in answer_a and choice3 not in answer_b and choice3 not in answer_c:
 		choice3= input(">>>")
@@ -128,6 +137,7 @@ def checkCabinet():
 	elif choice3 in answer_b:
 		say("""You place the diary into the fridge, nearly forgotten, as you grab all the takeout menus' on the fridge door.\n
 			Hopefully one of these places is still open.""")
+		time.sleep(2)
 		replay()
 	elif choice3 in answer_c:
 		print("You consider if it could be a joke, and while your grandpa loves jokes, you're not sure if this is one...")
@@ -148,12 +158,13 @@ def getItem():
 		You currently have the diary in your leather messenger bag, and are currently wearing a greay hoodie with a black puffy vest.\n 
 		It's dark out, should you look for a flashlight?\n
 		""")
-
-	time.sleep(1)
+	print("----------------------------------------------------")
+	time.sleep(3)
 	say("""
 		A. Dear god, you need a flashlight. Look for it now!\n
 		B. Nah, you got cat-like reflexes and cat-like eyesight. You're gucci.\n
 		""")
+	print("----------------------------------------------------")
 	choice4 = ""
 	while choice4 not in answer_a and choice4 not in answer_b:
 		choice4 = input(">>>")
@@ -165,12 +176,12 @@ def getItem():
 			""")
 		print("----------------------------------------------------")
 		print("Hey, there's a slim jim in here! Should you take it?\n")
-		time.sleep(1)
+		time.sleep(3)
 		say("""
 		 	A. Fuck yeah, snap into a slim jim!\n
 		 	B. Ew, gross. If I'm eating that I might as well eat those navy beans.\n
 			""")
-		
+		print("----------------------------------------------------")
 		choice5= ""
 		while choice5 not in answer_a and choice5 not in answer_b:
 		 	choice5 = input(">>>")
@@ -226,8 +237,9 @@ def lettuce():
 			Dumbass, that's you for sure.\n
 			Great joke, Grandad.\n
 			As you stand up once again from the dirt, you reach a muddy hand into your bag, tossing the diary into the field.
-			You walk glumly back in what you think is the direction of home. Hungry and dejected, you're reminded of why you hate life.
+			You walk glumly back in what you think is the direction of home. Hungry and dejected, you're reminded of why you hate life.\n
 			""")
+		time.sleep(5)
 		replay()
 
 #split in choices, user can pick to look for meat or cheese next
@@ -237,6 +249,7 @@ def locationBreak():
 		You look at the map in the diary once again. There are two locations near the lettuce field, what look to be the same distance apart.
 		Which should you go to first?
 		""")
+	print("----------------------------------------------------")
 	time.sleep(2)
 	say("""
 		A. Where's the beef.\n
@@ -303,6 +316,7 @@ def meat():
 
 			The anxious feeling follows you for life.\n
 			""")
+		time.sleep(4)
 		replay()
 	elif choice7 in answer_b:
 		say("""
@@ -344,6 +358,7 @@ def meat():
 			You never make it back to the cabin or your old life, but the new life you create in the town fulfills you in a way the old you
 			would never know.\n  
 			""")
+		time.sleep(5)
 		replay()
 
 def cheese():
