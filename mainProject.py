@@ -14,7 +14,7 @@ answer_b = ["B", "b"]
 answer_c = ["C", "c"]
 
 yes= ["yes", "y", "Yes", "Y"]
-no= ["no", "n", "No,", "N"]
+
 
 
 def title():
@@ -27,15 +27,16 @@ def title():
 #display intro to the game
 def displayIntro():
 	say(""" 
-	Your stomach grumbles as you turn your ps4 off. In the midst of enjoying yourself your
-	forgot to eat, hell, you even forgot to pee. It’s been an incredibly lazy winter break 
-	at your grandpa’s winter house, and this is usually how you end your nights, cooped up 
-	inside, playing games and enjoying the solitude.\n
+		Your stomach grumbles as you turn your ps4 off. In the midst of enjoying yourself your
+		forgot to eat, hell, you even forgot to pee. It’s been an incredibly lazy winter break 
+		at your grandpa’s winter house, and this is usually how you end your nights, cooped up 
+		inside, playing games and enjoying the solitude.\n
 
-	You walk into the kitchen, where the kitchen table is a mess, takeout containers
-	and pizza boxes cover the surface. The stove is relatively clean, as you don’t cook.
-	There is a cabinet above the counter top, and an old-school white fridge lays against
-	the wall. """)
+		You walk into the kitchen, where the kitchen table is a mess, takeout containers
+		and pizza boxes cover the surface. The stove is relatively clean, as you don’t cook.
+		There is a cabinet above the counter top, and an old-school white fridge lays against
+		the wall. 
+	""")
 	printBorder()
 	time.sleep(2)
 	say("""
@@ -208,6 +209,7 @@ def lettuce():
 		... At least you think you're in the right spot.\n
 		You walk around, tripping over the rocks. Nothing dangerous so far.\n
 		""")
+	printBorder()
 	if flashlight == True:
 		say("""
 			You turn on the flashlight, pointing it towards the field before you.\n
@@ -335,9 +337,8 @@ def meat():
 
 			Hesitantly you look up, and are greeted by a young man standing behind a meat stand.
 
-			'Here about the sandwhich?' he asks, voice smooth and numbing, as he hands you a wrapped packet. You attempt to respond, but
-
-			can't focus enough to do so.\n
+			'Here about the sandwhich?' he asks, voice smooth and numbing, as he hands you a packet of meat. It's tied with twine
+			and in it's center is a farily sized stone. You attempt to respond, but can't focus enough to do so.\n
 
 			'Just look down, and turn around. If you ever need meat again, come with a list.'\n
 
@@ -348,6 +349,7 @@ def meat():
 			You're never coming here again.\n
 			""")
 		patty = True
+		time.sleep(4)
 		#make boolean to see if they have gotten cheese already if so go to bread().
 		if cheeseLoaf == False:
 			printBorder()
@@ -611,12 +613,138 @@ def forest():
 def bread():
 	printBorder()
 	say("""
-		You pratically run out of the forest, man, you gave coach Kerr so much crap, but now you're glad he forced you to run 
+		You pratically run out of the forest, man, you gave coach Holt so much crap, but now you're glad he forced you to run 
 		because there was no way you would have been able to get through that.\n
 
-		As you walk towards the field, everything seems to get darker. It was subtle at first, almost as a filter is slowly being
-		applied on your vision. You stop, and look behind you, but now the darkness seems to be there, too.
+		As you walk towards the field, everything seems to get darker. It was subtle at first, almost as if a filter is slowly being
+		applied on your vision. You stop, and glance behind you, but now the darkness seems to be there, too.\n
+
+		What is happening?\n
+
+		You keep walking staight, eyes wide as your vision gets darker.\n
+
+		The light from the flashlight is so very faint, you can barely see it.\n
+
+		This is the last piece of the Legendary sandwich, you've come too far to quit.\n
+
+		You've given up on so much easier things than this. You push on, no longer able to see your own hands.
+		Everything is dark, and you are left alone with nothing but your thoughts.\n
 		""")
+	printBorder()
+	say("""
+		1. Cry.\n
+		2. Keep going.\n
+		3. Turn back.\n
+		""")
+	printBorder()
+	choice12=""
+	while choice12 not in answer_a and choice12 not in answer_b and choice12 not in answer_c:
+		choice12=input(">>>")
+	if choice12 in answer_a:
+		say("""
+			You start crying, and can't seem to stop.\n
+
+			It pisses you off, and you proceed to cry even harder.\n
+
+			This black void is literally what your whole life has felt like. You wander aimlessly, never finding your way out.\n
+			""")
+		time.sleep(3)
+		replay()
+	elif choice12 in answer_b:
+		say("""
+			You clutch your bag tight against yourself, and keep going. You still can't see yourself, can't even see your feet, 
+			god you hope that there's nothing hiding in the darkness. \n
+
+			You wish that you still had that slim jim.\n
+			""")
+		printBorder()
+		say("""
+			A. Check bag.\n
+			B. Shout.\n
+			""")
+		printBorder()
+		choice13=""
+		while choice13 not in answer_a and choice13 not in answer_b:
+			choice13=input(">>>")
+		if choice13 in answer_a:
+			say("""
+				You check your bag, well, more like feel through it. There's the head of lettuce, the packet of meat,
+				the cheese loaf, and the diary.\n
+
+				The diary... there was something there about the danger's of the journey. What had it said to do?\n
+
+				... 'Shine bright', that's what it was! But what is it supposed to mean?
+
+				You feel through the contents again, pressing the flashlight against every item - it doesn't give much light, but enough
+				for you to see if you can use one of them.
+				""")
+			printBorder()
+			say("""
+				A. Inspect lettuce.
+				B. Inspect cheese.
+				C. Inspect meat.
+				""")
+			printBorder()
+			choice14=""
+			while choice14 not in answer_a and choice14 not in answer_b and choice14 not in answer_c:
+				choice14 = input(">>>")
+			if choice14 in answer_a:
+				say("""
+					Yeah, that's a head of lettuce alright. There's nothing you see that can help you.\n
+					Absolutly crushed you sit and eat the lettuce like a hand fruit.\n
+					""")
+				time.sleep(3)
+				replay()
+			elif choice14 in answer_b:
+				say("""
+					You check the cheese, but there's nothing hidden in the cheese or the cloth that it was wrapped in.\n
+					... You shouldn't have high-fived that lady so hard, maybe if you had been normal you wouldn't be in this mess.\n
+					Well, it looks like you're gonna be here forever, might as well eat some cheese.\n
+					""")
+				time.sleep(3)
+				replay()
+			elif choice14 in answer_c:
+				say("""
+					
+					""")
+		elif choice13 in answer_b:
+			say("""
+				'Hey!' you shout, your voice echoing through the abyss. You scream again, taking breaks to see if you hear anything.\n
+
+				You keep at it for what seems hours, and finally you hear laughter. It's light, hell, you may even have imagined it, but
+				you rush towards the sound, shouting 'I'm here!'
+
+				The sounds of 'baas', 'moos', and 'blets' has never made you so happy, you're basically running towards the sounds, the strength
+				of the light on the flashlight coming back. \n
+				When you finally make it through the darkness, you hear a pop, and suddently you find yourself running towards that old, faded red barn.\n
+
+				Had you walked that whole distance from the wheat field to the dairy farm in the dark?\n
+
+				You laugh miserably at the thought, thankful to be out of that hell.\n
+				""")
+			time.sleep(5)
+			replay()
+	elif choice12 in answer_c:
+		say("""
+			You turn back, trying to walk back in the direction that you came from, but nothing changes.\n
+
+			This is such bullshit.\n
+
+			'Hey!' you shout, your voice echoing through the abyss. You scream again, taking breaks to see if you hear anything.\n
+
+			You keep at it for what seems hours, and finally you hear laughter. It's light, hell, you may even have imagined it, but
+			you rush towards the sound, shouting 'I'm here!'
+
+			The sounds of 'baas', 'moos', and 'blets' has never made you so happy, you're basically running towards the sounds, the strength
+			of the light on the flashlight coming back. \n
+			When you finally make it through the darkness, you hear a pop, and suddently you find yourself running towards that old, faded red barn.\n
+
+			Had you walked that whole distance from the wheat field to the dairy farm in the dark?\n
+
+			You laugh miserably at the thought, thankful to be out of that hell.\n
+			""")
+		time.sleep(6)
+		replay()
 
 #use to print border, so more aesthetically pleasing.
 def printBorder():
