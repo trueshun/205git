@@ -5,4 +5,4 @@ Sandwich Quest is a text-based adventure game written in Python. You play as a n
 
 In order to run Sandwich Quest you need to have adventurelib and pyreadline installed.
 
-To do so, just use: pip install adventurelib && pip install pyreadline 
+To do so, just use: pip install adventurelib and pip install pyreadline 
