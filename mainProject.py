@@ -87,9 +87,8 @@ def checkFridge():
 	if choice2 in answer_a:
 		checkCabinet()
 	else:
-		say("""You grab the bottle of ketchup - and for a second think you shouldn't - before opening the 
-			bottle and chugging a mix of semi-sweet/tart tomato puree.\n
-			God, is this your lowest moment yet?
+		say("""You grab the bottle of ketchup and chugg the mix of semi-sweet and tart tomato puree.\n
+			God, is this your lowest moment yet?\n
 			""")
 		time.sleep(3)
 		replay()
