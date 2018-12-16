@@ -36,7 +36,7 @@ def displayIntro():
 	and pizza boxes cover the surface. The stove is relatively clean, as you don’t cook.
 	There is a cabinet above the counter top, and an old-school white fridge lays against
 	the wall. """)
-	print("----------------------------------------------------")
+	printBorder()
 	time.sleep(2)
 	say("""
 	Where should you check first?\n
@@ -44,7 +44,7 @@ def displayIntro():
 	B. The cabinet.\n
 	C. Too much effort, going back to bed.\n
 	""")
-	print("----------------------------------------------------")
+	printBorder()
 	choice1 =""
 	while choice1 not in answer_a and choice1 not in answer_b and choice1 not in answer_c:
 		choice1 = input(">>>")
@@ -59,19 +59,19 @@ def displayIntro():
 
 #choice if fridge is chosen
 def checkFridge():
-	print("----------------------------------------------------")
+	printBorder()
 	say("""
 		You open the retro white fridge, and find the same bottle of 
 		ketchup you drank last night, and a jar of pickles... man, disappointing.
 		""")
 	time.sleep(3)
-	print("----------------------------------------------------")
+	printBorder()
 	say("""
 		Keep looking for something to eat?\n
 		A. All that's left is the cabinet.\n
 		B. Guess I'll drink some ketchup and head to bed.\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	choice2 = ""
 	#making sure that user input is correct
 	while choice2 not in answer_a and choice2 not in answer_b:
@@ -87,7 +87,7 @@ def checkFridge():
 		replay()
 #choice if cabinet is chosen.
 def checkCabinet():
-	print("----------------------------------------------------")
+	printBorder()
 	say("""
 		You check the bottom shelf of the cabinet, but don't see anything but a packet of wheat spaghetti noodles.
 		Maybe the upper middle shelf has some food? You stand on your toes for more leverage, avoiding a can of
@@ -121,14 +121,14 @@ def checkCabinet():
 
 		Why else would your Grandpa have hidden the diary? Your stomach grumbles as you try to make sense of this.
 		""") 
-	time.sleep(2)
-	print("----------------------------------------------------")
+	time.sleep(4)
+	printBorder()
 	say("""
 		A. Fuck it, check it out.\n
 		B. Screw that.\n
 		C. Think about it for a bit.\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	choice3 =""
 	while choice3 not in answer_a and choice3 not in answer_b and choice3 not in answer_c:
 		choice3= input(">>>")
@@ -150,7 +150,7 @@ def getItem():
 	#global items 
 	global flashlight
 	global jerky
-	print("----------------------------------------------------")
+	printBorder()
 
 	say("""
 		You grab your coat after dashing to the bathroom.\n
@@ -158,13 +158,13 @@ def getItem():
 		You currently have the diary in your leather messenger bag, and are currently wearing a greay hoodie with a black puffy vest.\n 
 		It's dark out, should you look for a flashlight?\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	time.sleep(3)
 	say("""
 		A. Dear god, you need a flashlight. Look for it now!\n
 		B. Nah, you got cat-like reflexes and cat-like eyesight. You're gucci.\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	choice4 = ""
 	while choice4 not in answer_a and choice4 not in answer_b:
 		choice4 = input(">>>")
@@ -174,14 +174,14 @@ def getItem():
 			You look all over the cabin, nearly giving up when you find the flashlight in the kitchen drawer full of random stuff.\
 			Thank God, because you don't have any cat-like skills.
 			""")
-		print("----------------------------------------------------")
+		printBorder()
 		print("Hey, there's a slim jim in here! Should you take it?\n")
 		time.sleep(3)
 		say("""
 		 	A. Fuck yeah, snap into a slim jim!\n
 		 	B. Ew, gross. If I'm eating that I might as well eat those navy beans.\n
 			""")
-		print("----------------------------------------------------")
+		printBorder()
 		choice5= ""
 		while choice5 not in answer_a and choice5 not in answer_b:
 		 	choice5 = input(">>>")
@@ -202,7 +202,7 @@ def getItem():
 #first item on quest - lettuce!
 def lettuce():
 	global flashlight
-	print("----------------------------------------------------")
+	printBorder()
 	say("""
 		It takes about 20 minutes, but you come to the field detailed in the diary.\n
 		... At least you think you're in the right spot.\n
@@ -244,18 +244,18 @@ def lettuce():
 
 #split in choices, user can pick to look for meat or cheese next
 def locationBreak():
-	print("----------------------------------------------------")
+	printBorder()
 	say("""
 		You look at the map in the diary once again. There are two locations near the lettuce field, what look to be the same distance apart.
 		Which should you go to first?
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	time.sleep(2)
 	say("""
 		A. Where's the beef.\n
 		B. Gotta get that cheese.\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	choice6 = ""
 	while choice6 not in answer_a and choice6 not in answer_b:
 		choice6 = input(">>>")
@@ -269,6 +269,8 @@ def locationBreak():
 def meat():
 	global patty
 	global cheeseLoaf
+
+	printBorder()
 	say("""
 		As you walk towards the destination for the meat of the sandwhich, you barely catch the * symbol below the word 'meat'.
 		You stop, shining the light onto the diary in the hopes of being able to make out the scrawled words.\n
@@ -298,14 +300,14 @@ def meat():
 
 		What should you do?\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	time.sleep(4)
 	say("""
 		A. Go home.\n
 		B. Ask people if they know Romano\n
 		C. Look around the buildings\n 
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	choice7 =""
 	while choice7 not in answer_a and choice7 not in answer_b and choice7 not in answer_c:
 		choice7 = input(">>>")
@@ -348,10 +350,10 @@ def meat():
 		patty = True
 		#make boolean to see if they have gotten cheese already if so go to bread().
 		if cheeseLoaf == False:
-			print("----------------------------------------------------")
+			printBorder()
 			cheese()
 		elif cheeseLoaf ==  True and patty == True: 
-			bread()
+			forest()
 	elif choice7 in answer_c:
 		say("""
 			You walk through the town, your gaze on the buildings as you try to look for a sign that mentions a butcher, or has the
@@ -374,6 +376,7 @@ def cheese():
 	global cheeseLoaf
 	global jerky
 
+	printBorder()
 	say("""
 		You've gotten real good at reading the little map in the diary. You eventually find yourself
 		at a small farm, a faded red old-school barn lays to the west of you, the doors wide open.\n
@@ -386,16 +389,16 @@ def cheese():
 		'Baa,' you say to the sheep in what you hope is how you say 'hi, just passing through'. You do the same to the
 		cows, but throw in a head nod, too.\n
 
-		At the goat you stop and stare\n
+		At the goat you stop and stare.\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	time.sleep(3)
 	say("""
 		A. Crave the mineral.\n
 		B. Uh... goat noise?\n
 		C. 'Bleat?'\n
 		""")
-	print("----------------------------------------------------")
+	printBorder()
 	choice8 =""
 	while choice8 not in answer_a and choice8 not in answer_b and choice8 not in answer_c:
 		choice8 = input(">>>")
@@ -427,13 +430,13 @@ def cheese():
 
 			She nods and extends her hand out towards you.\n
 			""")
-		time.sleep(2)
-		print("----------------------------------------------------")
+		time.sleep(3)
+		printBorder()
 		say("""
 			A. Check your bag.\n
 			B. Give her a high-five.\n
 			""")
-		print("----------------------------------------------------")
+		printBorder()
 		choice9=""
 		while choice9 not in answer_a and choice9 not in answer_b:
 			choice9 = input(">>>")
@@ -478,27 +481,155 @@ def cheese():
 				At first she is bewildered, and then breaks into a chorus of genuine laughter. She grabs a loaf of cheese, and 
 				wraps it in cloth, before handing it to you.\n
 
-				You thank her, amazed that worked, wave goodbye as you leave.\n
+				You thank her, amazed that worked, and wave goodbye as you leave, her laughter ringing in the air.\n
 				""")
+			time.sleep(4)
 			if patty == False:
-				print("----------------------------------------------------")
+				printBorder()
 				meat()
 			elif patty == True and cheeseLoaf == True:
+				forest()
+
+def forest():
+	global jerky
+
+	printBorder()
+	say("""
+		The diary says there's a field around here, but you have to get through this forest first.\n
+
+		It's dark out, and even with your flashlight you're struggling to see.\n
+
+		The once loud forest turns eerily quiet, and you're not sure when that happened. You hold your messenger bag close
+		as you listen intently to the silence.\n
+
+		God, you're so stupid, what are you expecting to hear?\n
+
+		Just as you think this, you hear it.\n
+
+		The sound of a branch breaking.\n
+
+		You stop, your stomach clenching tight as you hear the sound again.\n
+
+		Holy shit, something is out here with you.\n
+
+		You turn, flashlight aiming wildly into the trees, finally you see it, the glint of yellow wolf eyes 
+		staring you down. It looks at you, teeth bared.\n
+		""")
+	time.sleep(5)
+	printBorder()
+	say("""
+		A. Run\n
+		B. Lay down and die\n
+		C. Throw something\n
+		""")
+	printBorder()
+	choice10=""
+	while choice10 not in answer_a and choice10 not in answer_b and choice10 not in answer_c:
+		choice10 = input(">>>")
+	if choice10 in answer_a:
+		say("""
+			You bolt, sprinting with all your might as you hear the beast behind you. Several minutes later, and
+			your lungs are burning, your sides hurting with each breath. You can't keep this up.\n
+			""")
+		time.sleep(3)
+		printBorder()
+		say("""
+			A. Keep running.
+			B. Throw something.
+			""")
+		printBorder()
+		choice11=input(">>>")
+		while choice11 not in answer_a and choice11 not in answer_b:
+			choice11=input(">>>")
+		if choice11 in answer_a:
+			say("""
+				You keep running, tears prickling your eyes. This is such shit, you're not Usain Bolt. With each painful breath you
+				slow down just a bit. With a painful trip you seal your fate.
+				""")
+			time.sleep(3)
+			replay()
+		elif choice11 in answer_b:
+			if jerky == True:
+				say("""
+					You reach into your bag, and wildly grasp the first thing you can. You pull out a slim jim, 
+					of course! Everyone loves slim jim's!\n
+
+					You erratically tear the wrapper off, and throw it as far behind the wolf as you can.\n
+
+					The animal sniffs the air, nose twitching like mad as he turns to find the meaty treat.\n 
+
+					You laugh crazily at its retreating form. Is there anyone who can deny the deliciousness of a slim jim?\n
+					""")
+				time.sleep(4)
 				bread()
+			elif jerky == False:
+				say("""
+					You reach into your bag, and wildly grasp the first thing you can. It's the pack of meat from that weird-ass town.
+					Looking from the wolf to the meat, you nearly cry from frustration. \n
+
+					You shake the meat before you, the wolf's eyes following the movements. You toss it as far as you can, the wolf giving
+					chase after it.\n
+
+					That's it. What's the point of continuing? You lost one of the ingredients, and you're not going through that again.\n
+					""")
+				time.sleep(4)
+				replay()
+	elif choice10 in answer_b:
+		say("""
+			That's it, you can't do this anymore. You lay down, and give up.\n
+			Yeah, you're gonna die, but at least you won't have to walk back home.\n
+			""")
+		time.sleep(2)
+		replay()
+	elif choice10 in answer_c:
+		if jerky == True:
+			say("""
+				You reach into your bag, and wildly grasp the first thing you can. You pull out a slim jim, 
+				of course! Everyone loves slim jim's!\n
+
+				You erratically tear the wrapper off, and throw it as far behind the wolf as you can.\n
+
+				The animal sniffs the air, nose twitching like mad as he turns to find the meaty treat.\n 
+
+				You laugh crazily at its retreating form. Is there anyone who can deny the deliciousness of a slim jim?\n
+				""")
+			time.sleep(4)
+			bread()
+		elif jerky == False:
+			say("""
+				You reach into your bag, and wildly grasp the first thing you can. It's the pack of meat from that weird-ass town.
+				Looking from the wolf to the meat, you nearly cry from frustration. \n
+
+				You shake the meat before you, the wolf's eyes following the movements. You toss it as far as you can, the wolf giving
+				chase after it.\n
+
+				That's it. What's the point of continuing? You lost one of the ingredients, and you're not going through that again.\n
+				""")
+			time.sleep(4)
+			replay()
 
 def bread():
-	print("This is bread.")
-	replay()
+	printBorder()
+	say("""
+		You pratically run out of the forest, man, you gave coach Kerr so much crap, but now you're glad he forced you to run 
+		because there was no way you would have been able to get through that.\n
 
+		As you walk towards the field, everything seems to get darker. It was subtle at first, almost as a filter is slowly being
+		applied on your vision. You stop, and look behind you, but now the darkness seems to be there, too.
+		""")
+
+#use to print border, so more aesthetically pleasing.
+def printBorder():
+	print("----------------------------------------------------")
 
 #give option to replay game
 def replay():
-	print("----------------------------------------------------")
+	printBorder()
 	global playAgain
 	print("\nGAME OVER")
 	print("\nWould you like to play again?")
 	playAgain = input(">>>")
-	print("----------------------------------------------------")
+	printBorder()
 
 #global variables
 flashlight = False
