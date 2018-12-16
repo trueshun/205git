@@ -13,13 +13,20 @@ answer_a = ["A", "a"]
 answer_b = ["B", "b"]
 answer_c = ["C", "c"]
 
-yes= ["yes", "y", "Yes", "Y"]
-
-
-
 def title():
-	print("\n\n\n\n")
 	print("----------------------------------------------------------")
+	print("                          ____")
+	print("              .----------'    '-.")
+	print("             /  .      '     .   \'\'")
+	print("            /        '    .      /|")
+	print("           /      .             \'' /")
+	print("          /  ' .       .     .  || |")
+	print("         /.___________    '    / //")
+	print("         |._          '------'| /|")
+	print("         '.............______.-' /  ")
+	print("     jgs |-.                  | /")
+	print("         `------------.....-'" )
+	print("\n")
 	print("                        SANDWICH QUEST                    ")
 	print("----------------------------------------------------------")
 	print("\n\n\n\n")
@@ -632,9 +639,9 @@ def bread():
 		""")
 	printBorder()
 	say("""
-		1. Cry.\n
-		2. Keep going.\n
-		3. Turn back.\n
+		A. Cry.\n
+		B. Keep going.\n
+		C. Turn back.\n
 		""")
 	printBorder()
 	choice12=""
@@ -680,9 +687,9 @@ def bread():
 				""")
 			printBorder()
 			say("""
-				A. Inspect lettuce.
-				B. Inspect cheese.
-				C. Inspect meat.
+				A. Inspect lettuce.\n
+				B. Inspect cheese.\n
+				C. Inspect meat.\n
 				""")
 			printBorder()
 			choice14=""
@@ -705,8 +712,50 @@ def bread():
 				replay()
 			elif choice14 in answer_c:
 				say("""
-					
+					You're not really sure what to expect, it's meat after all.\n
+					... Meat from a town you're NEVER going to again.\n
+					You push the light against the packet, attempting to get the twine off, as you do so, the nearly transparent light hits 
+					something on the packet, and a blast of white lights blinds you. \n
+					You nearly drop the package of meat and the flashlight. It takes a few minutes for your vision to stop swimming,
+					which is a weird sensation all on it's own, as you can't even see at the moment.\n
+
+					When your eyes settle, you start grasping around the package, you feel a smooth stone, in the shape of a triangle.\n
+
+					Wait... a triangle? It's been awhile since you've taken middle school geology, but is it a prism? Did that Romano guy
+					tie a prism to the packet? Why would he do that?\n
+
+					'Fuck it, I don't need to know,' you say. 'I'll shine bright,' you say as you close your eyes and press the flashlight
+					to the twine wrapped package.\n
+
+					A blinding light engulfs the room, even with your eyes closed, and face turned away, you can feel the sheer blinding light.\n
+
+					You only open your eyes when feel the intensity dissipate.\n
+
+					You find yourself standing in a literal field of bread. \n
+
+					There are loafs, of what smell like sourdough, popping up from the ground.\n
+
+					Your at a loss for words.\n
+
+					You find a particularly crispy loaf and, looking around confused, take it. You have no idea what kind of fucking place
+					this is, and quite frankly you don't want to know.\n
 					""")
+				printBorder()
+				time.sleep(7)
+				say("""
+					The walk back home is a faint blur, you only remember being grateful you didn't pass through any other weird shit.\n
+
+					You sit down at the table in the kitchen, the diary and ingrediants laid out before you. You cut everything the way
+					the diary stated you should, and arrange it in the proper order.\n
+
+					You pick it up and take a bite.\n
+
+					Immediatly you're hit with wave after wave of salty, cheesy goodness.\n
+
+					This sandwich was worth all the counseling you're going to need in the future.\n
+					""")
+				time.sleep(7)
+				replay()
 		elif choice13 in answer_b:
 			say("""
 				'Hey!' you shout, your voice echoing through the abyss. You scream again, taking breaks to see if you hear anything.\n
